@@ -1,25 +1,21 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   Text,
   View,
   ScrollView,
-  TouchableOpacity,
   ActivityIndicator,
-  FlatList,
 } from 'react-native';
 import ListHeader from './../../../components/molecules/TemplateContent/ListHeader';
 import ListContentRadio from './../../../components/molecules/TemplateContent/ListContentRadio';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.state = {isLoading: true, dataSource: null};
+    this.state = { isLoading: true, dataSource: null };
   }
   componentDidMount() {
-    return fetch(
-      this.props.urlData + 'ibadahHarian/get/' + this.props.usernameData,
-    )
+    return fetch(this.props.urlData + 'ibadahHarian/get/' + this.props.usernameData)
       .then(response => response.json())
       .then(responseJson => {
         this.setState(
@@ -27,7 +23,7 @@ class Content extends Component {
             isLoading: false,
             dataSource: responseJson.data,
           },
-          function() {
+          function () {
             {
               this.state.dataSource.map((item, key) => {
                 if (item.subuh == 0) {
@@ -122,10 +118,10 @@ class Content extends Component {
       );
     } else {
       return (
-        <View style={{flex: 8, backgroundColor: '#ecf0f1'}}>
+        <View style={{ flex: 8, backgroundColor: '#ecf0f1' }}>
           {this.state.dataSource.map((item, key) => {
             return (
-              <ScrollView key={key} style={{marginVertical: '5%'}}>
+              <ScrollView key={key} style={{ marginVertical: '5%' }}>
                 {/* WAJUB */}
                 <ListHeader title="Sholat Wajib" />
                 {/* ======================================== SUBUH ======================================== */}
@@ -226,44 +222,44 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    subuh: () => dispatch({type: 'Subuh'}),
-    dzuhur: () => dispatch({type: 'Dzuhur'}),
-    ashar: () => dispatch({type: 'Ashar'}),
-    maghrib: () => dispatch({type: 'Maghrib'}),
-    isya: () => dispatch({type: 'Isya'}),
-    dhuha: () => dispatch({type: 'Dhuha'}),
-    tahajud: () => dispatch({type: 'Tahajud'}),
-    tadarus: () => dispatch({type: 'Tadarus'}),
-    sirah: () => dispatch({type: 'Sirah'}),
-    hafalanQuran: () => dispatch({type: 'HafalanQuran'}),
-    hafalanHadist: () => dispatch({type: 'HafalanHadist'}),
+    subuh: () => dispatch({ type: 'Subuh' }),
+    dzuhur: () => dispatch({ type: 'Dzuhur' }),
+    ashar: () => dispatch({ type: 'Ashar' }),
+    maghrib: () => dispatch({ type: 'Maghrib' }),
+    isya: () => dispatch({ type: 'Isya' }),
+    dhuha: () => dispatch({ type: 'Dhuha' }),
+    tahajud: () => dispatch({ type: 'Tahajud' }),
+    tadarus: () => dispatch({ type: 'Tadarus' }),
+    sirah: () => dispatch({ type: 'Sirah' }),
+    hafalanQuran: () => dispatch({ type: 'HafalanQuran' }),
+    hafalanHadist: () => dispatch({ type: 'HafalanHadist' }),
     // =========== GET DATA DB ================== //
-    getDBDataSubuhFalse: () => dispatch({type: 'GetDBDataSubuhFalse'}),
-    getDBDataSubuhTrue: () => dispatch({type: 'GetDBDataSubuhTrue'}),
-    getDBDataDzuhurFalse: () => dispatch({type: 'GetDBDataDzuhurFalse'}),
-    getDBDataDzuhurTrue: () => dispatch({type: 'GetDBDataDzuhurTrue'}),
-    getDBDataAsharFalse: () => dispatch({type: 'GetDBDataAsharFalse'}),
-    getDBDataAsharTrue: () => dispatch({type: 'GetDBDataAsharTrue'}),
-    getDBDataMaghribFalse: () => dispatch({type: 'GetDBDataMaghribFalse'}),
-    getDBDataMaghribTrue: () => dispatch({type: 'GetDBDataMaghribTrue'}),
-    getDBDataIsyaFalse: () => dispatch({type: 'GetDBDataIsyaFalse'}),
-    getDBDataIsyaTrue: () => dispatch({type: 'GetDBDataIsyaTrue'}),
-    getDBDataDhuhaFalse: () => dispatch({type: 'GetDBDataDhuhaFalse'}),
-    getDBDataDhuhaTrue: () => dispatch({type: 'GetDBDataDhuhaTrue'}),
-    getDBDataTahajudFalse: () => dispatch({type: 'GetDBDataTahajudFalse'}),
-    getDBDataTahajudTrue: () => dispatch({type: 'GetDBDataTahajudTrue'}),
-    getDBDataTadarusFalse: () => dispatch({type: 'GetDBDataTadarusFalse'}),
-    getDBDataTadarusTrue: () => dispatch({type: 'GetDBDataTadarusTrue'}),
-    getDBDataSirahFalse: () => dispatch({type: 'GetDBDataSirahFalse'}),
-    getDBDataSirahTrue: () => dispatch({type: 'GetDBDataSirahTrue'}),
+    getDBDataSubuhFalse: () => dispatch({ type: 'GetDBDataSubuhFalse' }),
+    getDBDataSubuhTrue: () => dispatch({ type: 'GetDBDataSubuhTrue' }),
+    getDBDataDzuhurFalse: () => dispatch({ type: 'GetDBDataDzuhurFalse' }),
+    getDBDataDzuhurTrue: () => dispatch({ type: 'GetDBDataDzuhurTrue' }),
+    getDBDataAsharFalse: () => dispatch({ type: 'GetDBDataAsharFalse' }),
+    getDBDataAsharTrue: () => dispatch({ type: 'GetDBDataAsharTrue' }),
+    getDBDataMaghribFalse: () => dispatch({ type: 'GetDBDataMaghribFalse' }),
+    getDBDataMaghribTrue: () => dispatch({ type: 'GetDBDataMaghribTrue' }),
+    getDBDataIsyaFalse: () => dispatch({ type: 'GetDBDataIsyaFalse' }),
+    getDBDataIsyaTrue: () => dispatch({ type: 'GetDBDataIsyaTrue' }),
+    getDBDataDhuhaFalse: () => dispatch({ type: 'GetDBDataDhuhaFalse' }),
+    getDBDataDhuhaTrue: () => dispatch({ type: 'GetDBDataDhuhaTrue' }),
+    getDBDataTahajudFalse: () => dispatch({ type: 'GetDBDataTahajudFalse' }),
+    getDBDataTahajudTrue: () => dispatch({ type: 'GetDBDataTahajudTrue' }),
+    getDBDataTadarusFalse: () => dispatch({ type: 'GetDBDataTadarusFalse' }),
+    getDBDataTadarusTrue: () => dispatch({ type: 'GetDBDataTadarusTrue' }),
+    getDBDataSirahFalse: () => dispatch({ type: 'GetDBDataSirahFalse' }),
+    getDBDataSirahTrue: () => dispatch({ type: 'GetDBDataSirahTrue' }),
     getDBDataHafalanQuranFalse: () =>
-      dispatch({type: 'GetDBDataHafalanQuranFalse'}),
+      dispatch({ type: 'GetDBDataHafalanQuranFalse' }),
     getDBDataHafalanQuranTrue: () =>
-      dispatch({type: 'GetDBDataHafalanQuranTrue'}),
+      dispatch({ type: 'GetDBDataHafalanQuranTrue' }),
     getDBDataHafalanHadistFalse: () =>
-      dispatch({type: 'GetDBDataHafalanHadistFalse'}),
+      dispatch({ type: 'GetDBDataHafalanHadistFalse' }),
     getDBDataHafalanHadistTrue: () =>
-      dispatch({type: 'GetDBDataHafalanHadistTrue'}),
+      dispatch({ type: 'GetDBDataHafalanHadistTrue' }),
   };
 }
 export default connect(

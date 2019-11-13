@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Text, StyleSheet, View, TouchableOpacity, Image} from 'react-native';
+import React, { Component } from 'react';
+import { Text, StyleSheet, View, TouchableOpacity, Image } from 'react-native';
 
 import Button from './../../../components/molecules/Dashboard/Button';
-import {Actions} from 'react-native-router-flux';
-import {connect} from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
 class Content extends Component {
   constructor(props) {
@@ -42,26 +42,14 @@ class Content extends Component {
     return (
       <View style={styles.boxContent}>
         <View style={styles.boxSection}>
-          <Button
-            icon="mosque"
-            title="Ibadah Harian"
-            action={this.IbadahHarianPage}
-          />
-          <Button
-            icon="fist-raised"
-            title="Fisik Harian"
-            action={this.FisikHarianPage}
-          />
+          <Button icon="mosque" title="Ibadah Harian" action={this.IbadahHarianPage} />
+          <Button icon="fist-raised" title="Fisik Harian" action={this.FisikHarianPage} />
           <Button icon="history" title="History" action={this.History} />
         </View>
 
         <View style={styles.boxSection}>
           <Button icon="chart-bar" title="Staistik" action={this.Statistik} />
-          <Button
-            icon="kaaba"
-            title="Jadwal Sholat"
-            action={this.JadwalSholat}
-          />
+          <Button icon="kaaba" title="Jadwal Sholat" action={this.JadwalSholat} />
           <Button icon="address-card" title="About" action={this.About} />
         </View>
       </View>
@@ -78,12 +66,12 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    ibadahHarian: () => dispatch({type: 'Ibadah_Harian'}),
-    fisikHarian: () => dispatch({type: 'Fisik_Harian'}),
-    history: () => dispatch({type: 'History'}),
-    statistik: () => dispatch({type: 'Statistik'}),
-    jadwalSholat: () => dispatch({type: 'Jadwal_Sholat'}),
-    about: () => dispatch({type: 'About'}),
+    ibadahHarian: () => dispatch({ type: 'Ibadah_Harian' }),
+    fisikHarian: () => dispatch({ type: 'Fisik_Harian' }),
+    history: () => dispatch({ type: 'History' }),
+    statistik: () => dispatch({ type: 'Statistik' }),
+    jadwalSholat: () => dispatch({ type: 'Jadwal_Sholat' }),
+    about: () => dispatch({ type: 'About' }),
   };
 }
 

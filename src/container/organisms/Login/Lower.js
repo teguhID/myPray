@@ -1,17 +1,15 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  FlatList,
   ActivityIndicator,
 } from 'react-native';
 
 import InputForm from './../../../components/molecules/Login/InputForm';
 import ButtonLogin from './../../../components/molecules/Login/ButtonLogin';
 import ThirdPartyButton from './../../../components/molecules/Login/ThirdPartyButton';
-import {Actions} from 'react-native-router-flux';
-import {connect} from 'react-redux';
+import { Actions } from 'react-native-router-flux';
+import { connect } from 'react-redux';
 
 class Lower extends Component {
   constructor(props) {
@@ -44,14 +42,14 @@ class Lower extends Component {
             dataSource: responseJson.data,
             isLoading: false,
           },
-          function() {
+          function () {
             this.state.dataSource.map((val, key) => {
               if (val.status == 'Failure') {
                 if (this.state.isLoading) {
                   <ActivityIndicator></ActivityIndicator>;
                 } else {
                   alert('username atau password salah');
-                  this.setState({password: ''});
+                  this.setState({ password: '' });
                 }
               }
               if (val.status == 'Success') {
@@ -86,7 +84,7 @@ class Lower extends Component {
         />
         <InputForm
           title="password"
-          onChangeText={password => this.setState({password})}
+          onChangeText={password => this.setState({ password })}
           value={this.state.password}
           password={true}
         />
@@ -106,7 +104,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    username: username => dispatch({type: 'Username', dataUsername: username}),
+    username: username => dispatch({ type: 'Username', dataUsername: username }),
   };
 }
 

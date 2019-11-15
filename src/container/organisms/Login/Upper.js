@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import {
   View,
-  Text,
   StyleSheet,
-  TouchableOpacity,
-  PermissionsAndroid,
 } from 'react-native';
 import Logo from './../../../components/molecules/Login/Logo';
 

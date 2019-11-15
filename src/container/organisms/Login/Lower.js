@@ -8,6 +8,7 @@ import {
 import InputForm from './../../../components/molecules/Login/InputForm';
 import ButtonLogin from './../../../components/molecules/Login/ButtonLogin';
 import ThirdPartyButton from './../../../components/molecules/Login/ThirdPartyButton';
+import Position from './../../../utility/Position'
 import { Actions } from 'react-native-router-flux';
 import { connect } from 'react-redux';
 
@@ -90,6 +91,7 @@ class Lower extends Component {
         />
         <ButtonLogin onPress={this.SubmitLogin} />
         <ThirdPartyButton />
+        <Position />
       </View>
     );
   }
@@ -118,7 +120,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Lower);
+export default connect(mapStateToProps, mapDispatchToProps)(Lower);

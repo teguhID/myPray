@@ -1,13 +1,14 @@
-import React, {Component} from 'react';
-import {Text, View, ScrollView, ActivityIndicator} from 'react-native';
+import React, { Component } from 'react';
+import { Text, View, ScrollView, ActivityIndicator } from 'react-native';
 import ListHeader from './../../../components/molecules/TemplateContent/ListHeader';
 import ListContentNumberForm from './../../../components/molecules/TemplateContent/ListContentNumberForm';
-import {connect} from 'react-redux';
+import Announcement from './../../../components/molecules/TemplateContent/Announcement'
+import { connect } from 'react-redux';
 
 class Content extends Component {
   constructor(props) {
     super(props);
-    this.state = {isLoading: true, dataSource: null};
+    this.state = { isLoading: true, dataSource: null };
   }
 
   componentDidMount() {
@@ -17,12 +18,11 @@ class Content extends Component {
     )
       .then(response => response.json())
       .then(responseJson => {
-        this.setState(
-          {
-            isLoading: false,
-            dataSource: responseJson.data,
-          },
-          function() {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.data,
+        },
+          function () {
             this.state.dataSource.map((item, key) => {
               this.props.getDBDataPushUp(item.push_up);
               this.props.getDBDataSitUp(item.sit_up);
@@ -40,21 +40,17 @@ class Content extends Component {
     if (this.state.isLoading) {
       return (
         <View
-          style={{
-            flex: 8,
-            backgroundColor: '#ecf0f1',
-            justifyContent: 'center',
-            alignContent: 'center',
-          }}>
+          style={{ flex: 8, backgroundColor: '#ecf0f1', justifyContent: 'center', alignContent: 'center', }}>
           <ActivityIndicator size="large" />
         </View>
       );
     } else {
       return (
-        <View style={{flex: 8, backgroundColor: '#ecf0f1'}}>
+        <View style={{ flex: 8, backgroundColor: '#ecf0f1' }}>
+          <Announcement />
           {this.state.dataSource.map((item, key) => {
             return (
-              <ScrollView key={key} style={{marginVertical: '5%'}}>
+              <ScrollView key={key} style={{ marginVertical: '5%' }}>
                 <ListHeader title="Wajib" />
                 <ListContentNumberForm
                   title="Push Up"
@@ -91,15 +87,12 @@ function mapStateToProps(state) {
 }
 function mapDispatchToProps(dispatch) {
   return {
-    pushUp: jumlah => dispatch({type: 'PushUp', jumlahPushUp: jumlah}),
-    sitUp: jumlah => dispatch({type: 'SitUp', jumlahSitUp: jumlah}),
-    squatJump: jumlah => dispatch({type: 'SquatJump', jumlahSquatJump: jumlah}),
-    getDBDataPushUp: data =>
-      dispatch({type: 'GetDBDataPushUp', dataDBPushUp: data}),
-    getDBDataSitUp: data =>
-      dispatch({type: 'GetDBDataSitUp', dataDBSitUp: data}),
-    getDBDataSquatJump: data =>
-      dispatch({type: 'GetDBDataSquatJump', dataDBSquatJump: data}),
+    pushUp: jumlah => dispatch({ type: 'PushUp', jumlahPushUp: jumlah }),
+    sitUp: jumlah => dispatch({ type: 'SitUp', jumlahSitUp: jumlah }),
+    squatJump: jumlah => dispatch({ type: 'SquatJump', jumlahSquatJump: jumlah }),
+    getDBDataPushUp: data => dispatch({ type: 'GetDBDataPushUp', dataDBPushUp: data }),
+    getDBDataSitUp: data => dispatch({ type: 'GetDBDataSitUp', dataDBSitUp: data }),
+    getDBDataSquatJump: data => dispatch({ type: 'GetDBDataSquatJump', dataDBSquatJump: data }),
   };
 }
 export default connect(

@@ -1,12 +1,8 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  ScrollView,
-  ActivityIndicator,
-} from 'react-native';
+import { Text, View, ScrollView, ActivityIndicator, } from 'react-native';
 import ListHeader from './../../../components/molecules/TemplateContent/ListHeader';
 import ListContentRadio from './../../../components/molecules/TemplateContent/ListContentRadio';
+import Announcement from './../../../components/molecules/TemplateContent/Announcement'
 import { connect } from 'react-redux';
 
 class Content extends Component {
@@ -106,94 +102,34 @@ class Content extends Component {
     if (this.state.isLoading) {
       return (
         <View
-          style={{
-            flex: 8,
-            backgroundColor: '#ecf0f1',
-            justifyContent: 'center',
-            alignContent: 'center',
-          }}>
+          style={{ flex: 8, backgroundColor: '#ecf0f1', justifyContent: 'center', alignContent: 'center', }}>
           <ActivityIndicator size="large" />
-          <Text>{this.props.subuhData}</Text>
         </View>
       );
     } else {
       return (
         <View style={{ flex: 8, backgroundColor: '#ecf0f1' }}>
+          <Announcement />
           {this.state.dataSource.map((item, key) => {
             return (
               <ScrollView key={key} style={{ marginVertical: '5%' }}>
                 {/* WAJUB */}
                 <ListHeader title="Sholat Wajib" />
-                {/* ======================================== SUBUH ======================================== */}
-                <ListContentRadio
-                  title="Subuh"
-                  onPress={() => this.props.subuh()}
-                  value={this.props.subuhData}
-                />
-                {/* ======================================== DZUHUR ======================================== */}
-                <ListContentRadio
-                  title="Dzuhur"
-                  onPress={() => this.props.dzuhur()}
-                  value={this.props.dzuhurData}
-                />
-                {/* ======================================== ASHAR ======================================== */}
-                <ListContentRadio
-                  title="Ashar"
-                  onPress={() => this.props.ashar()}
-                  value={this.props.asharData}
-                />
-                {/* ======================================== MAGHRIB ======================================== */}
-                <ListContentRadio
-                  title="Maghrib"
-                  onPress={() => this.props.maghrib()}
-                  value={this.props.maghribData}
-                />
-                {/* ======================================== ISYA ======================================== */}
-                <ListContentRadio
-                  title="Isya"
-                  onPress={() => this.props.isya()}
-                  value={this.props.isyaData}
-                />
+                <ListContentRadio title="Subuh" onPress={() => this.props.subuh()} value={this.props.subuhData} />
+                <ListContentRadio title="Dzuhur" onPress={() => this.props.dzuhur()} value={this.props.dzuhurData} />
+                <ListContentRadio title="Ashar" onPress={() => this.props.ashar()} value={this.props.asharData} />
+                <ListContentRadio title="Maghrib" onPress={() => this.props.maghrib()} value={this.props.maghribData} />
+                <ListContentRadio title="Isya" onPress={() => this.props.isya()} value={this.props.isyaData} />
                 {/* SUNNAH */}
                 <ListHeader title="Sholat Sunnah" />
-                {/* ======================================== DHUHA ======================================== */}
-                <ListContentRadio
-                  title="Dhuha"
-                  onPress={() => this.props.dhuha()}
-                  value={this.props.dhuhaData}
-                />
-                {/* ======================================== TAHAJUD ======================================== */}
-                <ListContentRadio
-                  title="Tahajud"
-                  onPress={() => this.props.tahajud()}
-                  value={this.props.tahajudData}
-                />
+                <ListContentRadio title="Dhuha" onPress={() => this.props.dhuha()} value={this.props.dhuhaData} />
+                <ListContentRadio title="Tahajud" onPress={() => this.props.tahajud()} value={this.props.tahajudData} />
                 {/* Lainnya */}
                 <ListHeader title="Lainnya" />
-                {/* ======================================== TADARUS QURAN ======================================== */}
-                <ListContentRadio
-                  title="Tadarus Al-Qur'an"
-                  onPress={() => this.props.tadarus()}
-                  value={this.props.tadarusData}
-                />
-                {/* ======================================== BACA SIRAH ======================================== */}
-                <ListContentRadio
-                  title="Baca Sirah"
-                  onPress={() => this.props.sirah()}
-                  value={this.props.sirahData}
-                />
-                {/* ======================================== Hafalan Quran ======================================== */}
-                <ListContentRadio
-                  title="Hafalan Al-Qur'an"
-                  onPress={() => this.props.hafalanQuran()}
-                  value={this.props.hafalanQuranData}
-                />
-                {/* ======================================== HAFALAN HADIST ======================================== */}
-                <ListContentRadio
-                  title="Hafalan Hadist"
-                  onPress={() => this.props.hafalanHadist()}
-                  value={this.props.hafalanHadistData}
-                />
+                <ListContentRadio title="Tadarus Al-Qur'an" onPress={() => this.props.tadarus()} value={this.props.tadarusData} />
+                <ListContentRadio title="Baca Sirah" onPress={() => this.props.sirah()} value={this.props.sirahData} />
+                <ListContentRadio title="Hafalan Al-Qur'an" onPress={() => this.props.hafalanQuran()} value={this.props.hafalanQuranData} />
+                <ListContentRadio title="Hafalan Hadist" onPress={() => this.props.hafalanHadist()} value={this.props.hafalanHadistData} />
               </ScrollView>
             );
           })}
@@ -252,17 +188,10 @@ function mapDispatchToProps(dispatch) {
     getDBDataTadarusTrue: () => dispatch({ type: 'GetDBDataTadarusTrue' }),
     getDBDataSirahFalse: () => dispatch({ type: 'GetDBDataSirahFalse' }),
     getDBDataSirahTrue: () => dispatch({ type: 'GetDBDataSirahTrue' }),
-    getDBDataHafalanQuranFalse: () =>
-      dispatch({ type: 'GetDBDataHafalanQuranFalse' }),
-    getDBDataHafalanQuranTrue: () =>
-      dispatch({ type: 'GetDBDataHafalanQuranTrue' }),
-    getDBDataHafalanHadistFalse: () =>
-      dispatch({ type: 'GetDBDataHafalanHadistFalse' }),
-    getDBDataHafalanHadistTrue: () =>
-      dispatch({ type: 'GetDBDataHafalanHadistTrue' }),
+    getDBDataHafalanQuranFalse: () => dispatch({ type: 'GetDBDataHafalanQuranFalse' }),
+    getDBDataHafalanQuranTrue: () => dispatch({ type: 'GetDBDataHafalanQuranTrue' }),
+    getDBDataHafalanHadistFalse: () => dispatch({ type: 'GetDBDataHafalanHadistFalse' }),
+    getDBDataHafalanHadistTrue: () => dispatch({ type: 'GetDBDataHafalanHadistTrue' }),
   };
 }
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(Content);
+export default connect(mapStateToProps, mapDispatchToProps)(Content);

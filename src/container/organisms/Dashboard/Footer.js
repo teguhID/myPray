@@ -1,59 +1,34 @@
 import React, { Component } from 'react'
-import { Text, View, ActivityIndicator } from 'react-native'
-import Geolocation from '@react-native-community/geolocation';
+import { View, Text } from 'react-native'
+import Icon from 'react-native-vector-icons/FontAwesome5';
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
+import { connect } from 'react-redux'
+import Time from './../../../utility/Time'
+import Position from './../../../utility/Position'
 
-export default class Footer extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            locationCity: '',
-            isLoading: true,
-            time: ''
-        };
-    }
-
-    componentWillMount() {
-        setInterval(() => {
-            this.setState({
-                time: new Date().toLocaleString()
-            })
-        }, 1000)
-
-        Geolocation.getCurrentPosition(position => {
-            const location = console.log(position);
-            fetch('https://geocode.xyz/' + position.coords.latitude + ',' + position.coords.longitude + '?json=1')
-                .then((response) => response.json())
-                .then((responseJson) => {
-                    this.setState({
-                        locationCity: responseJson.city,
-                        isLoading: false
-                    }, function () {
-                    });
-                });
-        });
-    }
+class Footer extends Component {
 
     render() {
-        if (this.state.isLoading) {
-            return (
-                <View style={{ flex: 1, alignItems: 'center' }}>
-                    <ActivityIndicator></ActivityIndicator>
+        return (
+            <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'row' }}>
+                <Icon
+                    style={{ marginRight: '2%' }}
+                    name='map-marker-alt'
+                    color="#474787"
+                    size={responsiveFontSize(5)}>
+                </Icon>
+                <Position style={{ fontWeight: 'bold', marginRight: '7%' }} />
+                <Icon
+                    style={{ marginRight: '2%' }}
+                    name='clock'
+                    color="#474787"
+                    size={responsiveFontSize(5)}>
+                </Icon>
+                <View style={{ flexDirection: 'column' }}>
+                    <Time style={{ fontSize: responsiveFontSize(1.5) }} />
                 </View>
-            )
-        } else {
-            return (
-                <View style={{ flex: 1, alignItems: 'center' }}>
-                    <Text>{this.state.locationCity}</Text>
-                    <Text>{this.state.time}</Text>
-                </View>
-            )
-        }
+            </View>
+        )
     }
-
-    componentWillUnmount() {
-        clearInterval(() => {
-            this.state.time
-        });
-    }
-
 }
+export default (Footer)

@@ -1,5 +1,5 @@
-import React, {Component} from 'react';
-import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
+import React, { Component } from 'react';
+import { Text, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import {
   responsiveHeight,
@@ -15,7 +15,7 @@ const Button = props => {
           name={props.icon}
           color="#474787"
           size={responsiveFontSize(5)}></Icon>
-        <Text style={{fontSize: responsiveFontSize(1.5), color: '#474787'}}>
+        <Text style={{ fontSize: responsiveFontSize(1.5), color: '#474787' }}>
           {props.title}
         </Text>
       </View>

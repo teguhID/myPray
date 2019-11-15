@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import {
-  Text,
-  StyleSheet,
-  BackHandler,
-  View,
-  TouchableOpacity,
-  Image,
-} from 'react-native';
+import { View } from 'react-native';
 import Header from './../organisms/Dashboard/Header';
 import Content from './../organisms/Dashboard/Content';
-import Footer from './../organisms/Dashboard/Footer'
+import Footer from './../organisms/Dashboard/Footer';
+import Date from './../../utility/Date'
 
 class Dashboard extends Component {
+
   render() {
     return (
       <View
@@ -19,9 +14,12 @@ class Dashboard extends Component {
         <Header />
         <Content />
         <Footer />
+
+        {/* UPLOAD API DATA TO REDUX */}
       </View>
     );
   }
 }
+
 
 export default Dashboard;

@@ -1,15 +1,16 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import {Container} from 'native-base';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
+import { Container } from 'native-base';
 
 import Header from './../organisms/TemplateContent/Header';
 import IbadahHarian from './../organisms/IbadahHarian/Content';
 import FisikHarian from './../organisms/FisikHarian/Content';
+import JadwalSholat from './../organisms/JadwalSholat/Content'
 import Pengembangan from './../organisms/Pengembangan/Content';
 import FooterNav from './../organisms/TemplateContent/FooterNav';
-import {Actions} from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 
 class ContentPage extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class ContentPage extends Component {
             isLoading: false,
             dataSource: responseJson.data,
           },
-          function() {
+          function () {
             alert('data berhasil di simpan');
             Actions.ContentPage();
           },
@@ -84,7 +85,7 @@ class ContentPage extends Component {
             isLoading: false,
             dataSource: responseJson.data,
           },
-          function() {
+          function () {
             alert('data berhasil di simpan');
             Actions.ContentPage();
           },
@@ -99,14 +100,14 @@ class ContentPage extends Component {
     if (this.props.page == 'Ibadah Harian') {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header
               icon="mosque"
               title="Ibadah Harian"
               onPress={this.SaveIbadahHarian}
             />
             <IbadahHarian />
-            <FooterNav cssIbadahHarian={{color: '#8b86d1'}} />
+            <FooterNav cssIbadahHarian={{ color: '#8b86d1' }} />
           </View>
         </Container>
       );
@@ -114,14 +115,14 @@ class ContentPage extends Component {
     if (this.props.page == 'Fisik Harian') {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header
               icon="fist-raised"
               title="Fisik Harian"
               onPress={this.SaveFisikHarian}
             />
             <FisikHarian />
-            <FooterNav cssFisikHarian={{color: '#8b86d1'}} />
+            <FooterNav cssFisikHarian={{ color: '#8b86d1' }} />
           </View>
         </Container>
       );
@@ -129,10 +130,10 @@ class ContentPage extends Component {
     if (this.props.page == 'History') {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header icon="history" title="History" />
             <Pengembangan />
-            <FooterNav cssHistory={{color: '#8b86d1'}} />
+            <FooterNav cssHistory={{ color: '#8b86d1' }} />
           </View>
         </Container>
       );
@@ -140,10 +141,10 @@ class ContentPage extends Component {
     if (this.props.page == 'Statistik') {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header icon="chart-bar" title="Statistik" />
             <Pengembangan />
-            <FooterNav cssStatistik={{color: '#8b86d1'}} />
+            <FooterNav cssStatistik={{ color: '#8b86d1' }} />
           </View>
         </Container>
       );
@@ -151,10 +152,10 @@ class ContentPage extends Component {
     if (this.props.page == 'Jadwal Sholat') {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header icon="kaaba" title="Jadwal Sholat" />
-            <Pengembangan />
-            <FooterNav cssJadwalSholat={{color: '#8b86d1'}} />
+            <JadwalSholat />
+            <FooterNav cssJadwalSholat={{ color: '#8b86d1' }} />
           </View>
         </Container>
       );
@@ -162,17 +163,17 @@ class ContentPage extends Component {
     if (this.props.page == 'About') {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header icon="address-card" title="About" />
             <Pengembangan />
-            <FooterNav cssAbout={{color: '#8b86d1'}} />
+            <FooterNav cssAbout={{ color: '#8b86d1' }} />
           </View>
         </Container>
       );
     } else {
       return (
         <Container>
-          <View style={{flex: 1, flexDirection: 'column'}}>
+          <View style={{ flex: 1, flexDirection: 'column' }}>
             <Header icon="exclamation-triangle" title="" />
             <Pengembangan />
             <FooterNav />

@@ -101,11 +101,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header
-              icon="mosque"
-              title="Ibadah Harian"
-              onPress={this.SaveIbadahHarian}
-            />
+            <Header icon="mosque" title="Ibadah Harian" onPress={this.SaveIbadahHarian} style={{ opacity: 1.0, marginRight: '3%' }} />
             <IbadahHarian />
             <FooterNav cssIbadahHarian={{ color: '#8b86d1' }} />
           </View>
@@ -116,11 +112,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header
-              icon="fist-raised"
-              title="Fisik Harian"
-              onPress={this.SaveFisikHarian}
-            />
+            <Header icon="fist-raised" title="Fisik Harian" onPress={this.SaveFisikHarian} style={{ opacity: 1.0, marginRight: '3%' }} />
             <FisikHarian />
             <FooterNav cssFisikHarian={{ color: '#8b86d1' }} />
           </View>
@@ -131,7 +123,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header icon="history" title="History" />
+            <Header icon="history" title="History" style={{ opacity: 0.0, marginRight: '3%' }} />
             <Pengembangan />
             <FooterNav cssHistory={{ color: '#8b86d1' }} />
           </View>
@@ -142,7 +134,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header icon="chart-bar" title="Statistik" />
+            <Header icon="chart-bar" title="Statistik" style={{ opacity: 0.0, marginRight: '3%' }} />
             <Pengembangan />
             <FooterNav cssStatistik={{ color: '#8b86d1' }} />
           </View>
@@ -153,7 +145,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header icon="kaaba" title="Jadwal Sholat" />
+            <Header icon="kaaba" title="Jadwal Sholat" style={{ opacity: 0.0, marginRight: '3%' }} />
             <JadwalSholat />
             <FooterNav cssJadwalSholat={{ color: '#8b86d1' }} />
           </View>
@@ -164,7 +156,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header icon="address-card" title="About" />
+            <Header icon="address-card" title="About" style={{ opacity: 0.0, marginRight: '3%' }} />
             <Pengembangan />
             <FooterNav cssAbout={{ color: '#8b86d1' }} />
           </View>
@@ -174,7 +166,7 @@ class ContentPage extends Component {
       return (
         <Container>
           <View style={{ flex: 1, flexDirection: 'column' }}>
-            <Header icon="exclamation-triangle" title="" />
+            <Header icon="exclamation-triangle" title="" style={{ opacity: 0.0, marginRight: '3%' }} />
             <Pengembangan />
             <FooterNav />
           </View>

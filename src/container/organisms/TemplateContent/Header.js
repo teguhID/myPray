@@ -8,7 +8,7 @@ const Header = props => {
     <View
       style={{ flex: 1, flexDirection: 'row', justifyContent: 'center', alignItems: 'center', backgroundColor: '#474787', }}>
       <HeaderTitle icon={props.icon} title={props.title} />
-      <SaveButton onPress={props.onPress} />
+      <SaveButton onPress={props.onPress} style={props.style} />
     </View>
   );
 };

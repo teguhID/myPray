@@ -1,24 +1,34 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
+import { Text, ActivityIndicator } from 'react-native'
+import { connect } from 'react-redux'
 
-export default class Time extends Component {
+class Time extends Component {
 
     constructor(props) {
         super(props)
         this.state = {
-            hours: 0,
-            minutes: 0,
-            seconds: 0,
+            isLoading: true,
         };
     }
 
     componentDidMount() {
         this.time = setInterval(() => {
-            this.setState({
-                hours: new Date().getHours(),
-                minutes: new Date().getMinutes(),
-                seconds: new Date().getSeconds(),
-            })
+            return fetch('https://apimypray.000webhostapp.com/getDateTime')
+                .then((response) => response.json())
+                .then((responseJson) => {
+
+                    this.setState({
+                        isLoading: false,
+                    }, function () {
+                        this.props.SaveDayData(responseJson.mday)
+                        this.props.SaveMonthData(responseJson.mon)
+                        this.props.SaveYearData(responseJson.year)
+                    });
+
+                })
+                .catch((error) => {
+                    console.error(error);
+                });
         }, 1000)
     }
 
@@ -28,7 +38,25 @@ export default class Time extends Component {
 
     render() {
         return (
-            <Text style={this.props.style}>{this.state.hours} : {this.state.minutes} : {this.state.seconds}</Text>
+            <Text></Text>
         )
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        dayData: state.day,
+        monthData: state.month,
+        yearData: state.year,
+    };
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        SaveDayData: (mday) => dispatch({ type: 'SaveDay', dayData: mday }),
+        SaveMonthData: (mon) => dispatch({ type: 'SaveMonth', monthData: mon }),
+        SaveYearData: (year) => dispatch({ type: 'SaveYear', yearData: year }),
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Time)

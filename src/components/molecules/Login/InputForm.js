@@ -1,15 +1,11 @@
-import React, {Component} from 'react';
-import {Text, View} from 'react-native';
-import {Item, Input} from 'native-base';
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-} from 'react-native-responsive-dimensions';
+import React, { Component } from 'react';
+import { Text, View } from 'react-native';
+import { Item, Input } from 'native-base';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const InputForm = props => {
   return (
-    <View style={{marginBottom: '2%'}}>
+    <View style={{ marginBottom: '2%' }}>
       <Text
         style={{
           color: 'white',
@@ -26,7 +22,7 @@ const InputForm = props => {
           height: responsiveHeight(7),
         }}>
         <Input
-          style={{color: 'white', fontSize: responsiveFontSize(2)}}
+          style={{ color: 'white', fontSize: responsiveFontSize(2) }}
           onChangeText={props.onChangeText}
           value={props.value}
           secureTextEntry={props.password}

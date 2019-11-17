@@ -3,7 +3,6 @@ import { View } from 'react-native';
 import Header from './../organisms/Dashboard/Header';
 import Content from './../organisms/Dashboard/Content';
 import Footer from './../organisms/Dashboard/Footer';
-import Date from './../../utility/Date'
 
 class Dashboard extends Component {
 

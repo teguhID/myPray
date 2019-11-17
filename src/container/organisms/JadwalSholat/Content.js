@@ -1,14 +1,10 @@
 import React, { Component } from 'react'
 import { Text, View, ActivityIndicator, StyleSheet } from 'react-native'
-import Date from './../../../utility/Date'
-import Icon from 'react-native-vector-icons/FontAwesome5';
-import {
-    responsiveHeight,
-    responsiveWidth,
-    responsiveFontSize,
-} from 'react-native-responsive-dimensions';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions'
+import { connect } from 'react-redux'
+import Position from './../../../utility/Position'
 
-export default class Content extends Component {
+class Content extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +18,7 @@ export default class Content extends Component {
     }
 
     componentDidMount() {
-        fetch('http://api.aladhan.com/v1/timingsByCity?city=Bandung&country=Indonesia&method=8')
+        fetch('http://api.aladhan.com/v1/timingsByCity?city=' + this.props.cityData + '&country=' + this.props.country + '&method=8')
             .then((response) => response.json())
             .then((responseJson) => {
                 this.setState({
@@ -53,8 +49,11 @@ export default class Content extends Component {
             return (
                 <View style={{ flex: 8, backgroundColor: '#ecf0f1' }}>
                     <View style={{ justifyContent: 'center', alignItems: 'center', marginTop: '7%', marginBottom: '2%' }}>
-                        <Text> Jadwal Sholat </Text>
-                        <Date />
+                        <View style={{ flexDirection: 'row' }}>
+                            <Text> Jadwal Sholat :</Text>
+                            <Text> {this.props.dayData}/{this.props.monthData}/{this.props.yearData} </Text>
+                        </View>
+                        <Position />
                     </View>
 
                     <View style={{ justifyContent: 'center', alignItems: 'center', marginVertical: '2%' }}>
@@ -98,6 +97,18 @@ export default class Content extends Component {
         }
     }
 }
+
+function mapStateToProps(state) {
+    return {
+        dayData: state.day,
+        monthData: state.month,
+        yearData: state.year,
+        cityData: state.city,
+        countryData: state.country,
+    };
+}
+
+export default connect(mapStateToProps, null)(Content)
 
 const styles = StyleSheet.create({
     box: {

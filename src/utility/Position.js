@@ -44,8 +44,8 @@ class Position extends Component {
             )
         } else {
             return (
-                <View>
-                    <Text style={this.props.style}>{this.props.cityData}</Text>
+                <View style={{ flexDirection: 'row' }}>
+                    <Text style={this.props.style}>{this.props.cityData}{' '}</Text>
                     <Text style={this.props.style}>{this.state.locationStAdress}</Text>
                 </View>
             )

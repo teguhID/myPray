@@ -1,10 +1,6 @@
-import React, {Component} from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-} from 'react-native-responsive-dimensions';
+import React, { Component } from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const Logo = props => {

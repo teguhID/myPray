@@ -47,7 +47,7 @@ class Lower extends Component {
             this.state.dataSource.map((val, key) => {
               if (val.status == 'Failure') {
                 if (this.state.isLoading) {
-                  <ActivityIndicator></ActivityIndicator>;
+                  alert(<ActivityIndicator></ActivityIndicator>);
                 } else {
                   alert('username atau password salah');
                   this.setState({ password: '' });
@@ -55,7 +55,7 @@ class Lower extends Component {
               }
               if (val.status == 'Success') {
                 if (this.state.isLoading) {
-                  <ActivityIndicator></ActivityIndicator>;
+                  alert(<ActivityIndicator></ActivityIndicator>);
                 } else {
                   Actions.Dashboard({
                     onBack: () => console.log('custom back callback'),
@@ -91,7 +91,6 @@ class Lower extends Component {
         />
         <ButtonLogin onPress={this.SubmitLogin} />
         <ThirdPartyButton />
-        <Position />
       </View>
     );
   }

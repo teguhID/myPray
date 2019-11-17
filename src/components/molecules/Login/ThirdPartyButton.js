@@ -1,15 +1,11 @@
-import React, {Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-} from 'react-native-responsive-dimensions';
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 
 const ThirdPartyButton = props => {
   return (
-    <View style={{marginTop: '5%'}}>
+    <View style={{ marginTop: '5%' }}>
       <TouchableOpacity
         style={{
           width: responsiveWidth(75),

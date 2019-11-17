@@ -112,6 +112,12 @@ const Reducer = (state = State, action) => {
       return { ...state, city: action.CityData };
     case 'SaveCountryData':
       return { ...state, country: action.CountryData };
+    case 'SaveDay':
+      return { ...state, day: action.dayData };
+    case 'SaveMonth':
+      return { ...state, month: action.monthData };
+    case 'SaveYear':
+      return { ...state, year: action.yearData };
     // ==================================================== API ====================================================
   }
   return state;

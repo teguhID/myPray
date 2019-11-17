@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  View,
-  StyleSheet,
-} from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Logo from './../../../components/molecules/Login/Logo';
 
 export default class Upper extends Component {

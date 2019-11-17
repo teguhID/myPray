@@ -1,14 +1,10 @@
-import React, {Component} from 'react';
-import {Text, View, TouchableOpacity} from 'react-native';
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-} from 'react-native-responsive-dimensions';
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const ButtonLogin = props => {
   return (
-    <View style={{marginTop: '5%'}}>
+    <View style={{ marginTop: '5%' }}>
       <TouchableOpacity
         onPress={props.onPress}
         style={{

@@ -17,16 +17,8 @@ class Footer extends Component {
                     color="#474787"
                     size={responsiveFontSize(5)}>
                 </Icon>
-                <Position style={{ fontWeight: 'bold', marginRight: '7%' }} />
-                <Icon
-                    style={{ marginRight: '2%' }}
-                    name='clock'
-                    color="#474787"
-                    size={responsiveFontSize(5)}>
-                </Icon>
-                <View style={{ flexDirection: 'column' }}>
-                    <Time style={{ fontSize: responsiveFontSize(1.5) }} />
-                </View>
+                <Position style={{ fontWeight: 'bold' }} />
+                <Time />
             </View>
         )
     }

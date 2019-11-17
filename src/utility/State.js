@@ -19,10 +19,14 @@ const State = {
   //LOGIN
   username: '',
   // url: 'http://192.168.43.234:8000/',
-  url: 'http://10.0.0.167:8000/',
+  // url: 'http://10.0.0.167:8000/',
+  url: 'https://apimypray.000webhostapp.com/',
   // API
   city: '-',
   country: '-',
+  day: 'D',
+  month: 'M',
+  year: 'Y',
 };
 
 export default State;

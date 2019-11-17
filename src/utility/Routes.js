@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {View, Text} from 'react-native';
-import {Router, Scene} from 'react-native-router-flux';
+import React, { Component } from 'react';
+import { View, Text } from 'react-native';
+import { Router, Scene } from 'react-native-router-flux';
 
 import FooterNav from './../container/organisms/TemplateContent/FooterNav';
 import Dashboard from './../container/pages/Dashboard';
@@ -29,12 +29,6 @@ export default class Routes extends Component {
             title="Content Page"
             hideNavBar={true}
           />
-          {/* <Scene
-            key="Test"
-            component={Test}
-            title="Content Page"
-            hideNavBar={true}
-          /> */}
           <Scene
             key="Login"
             component={Login}

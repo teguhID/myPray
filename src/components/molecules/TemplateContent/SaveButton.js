@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
-import {View, Text, TouchableOpacity} from 'react-native';
-import {responsiveFontSize} from 'react-native-responsive-dimensions';
+import React, { Component } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import { responsiveFontSize } from 'react-native-responsive-dimensions';
 
 const SaveButton = props => {
   return (
-    <View style={{flex: 1.5}}>
+    <View style={{ flex: 1.5 }} style={props.style}>
       <TouchableOpacity onPress={props.onPress}>
         <Text
           style={{
@@ -15,7 +15,7 @@ const SaveButton = props => {
           Save
         </Text>
       </TouchableOpacity>
-    </View>
+    </View >
   );
 };
 
